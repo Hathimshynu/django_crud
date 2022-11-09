@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+    
+<body style="background-color:#33455b;color:darkblue">
+    
+    <h3 style='color:springgreen'><marquee behavior='alternate' width="100%" bgcolor="lightpurple" direction="right" height="30%" scrollamount="12">
+        Welcome to CRUD operation
+        </marquee></h3>
+    <nav class="navbar navbar-expand-lg navbar-bg-secondary">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <h3><a class="nav-link" href="#">Home </a></h3>
+</li>
+<li class="nav-item">
+    <h3> <a class="nav-link" href="create/">Register</a></h3>
+</li></ul>
+</nav>
+    <div class="col-8 offset-2">
+        <table class="table table-bordered table-primary">
+            <tr bgcolor='lightgreen'>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Job</th>
+                <th>Salary</th>
+                <th></th>
+                <th></th>
+                
+            </tr>
+            {% for i in data %}
+            <tr bgcolor='skyblue'>
+                <td>{{i.}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.job}}</td>
+                <td>{{i.salary}}</td>
+                <td><a  class="btn btn-info" href="update/{{i.id}}">Edit</a></td>
+                <td><a  class="btn btn-danger" href="delete/{{i.id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+</body>
+</html>
